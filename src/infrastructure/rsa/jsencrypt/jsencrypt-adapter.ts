@@ -8,10 +8,8 @@ export class JSEncryptAdapter implements EncryptMessageProtocol {
 
   encrypt (payload: string): string | false {
     const sign = new JSEncrypt({})
-    console.log(this.publicKey)
     sign.setPublicKey(this.publicKey)
     const token = sign.encrypt(payload)
-    console.log('Encrypted Token', token)
     return token
   }
 }

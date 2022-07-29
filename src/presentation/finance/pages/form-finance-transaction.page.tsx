@@ -448,7 +448,6 @@ export const FormFinanceTransactionPage: React.FC = () => {
         defaultValue={financeTransactionType}
         fieldValidations={fieldsValidation}
         onChangeValue={newFinanceType => {
-          console.log(newFinanceType)
           setFinanceTransactionType(newFinanceType.value as FinanceTransactionType)
         }}
       />

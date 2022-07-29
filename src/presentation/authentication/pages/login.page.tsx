@@ -45,7 +45,6 @@ export const LoginPage: React.FC = () => {
     const accessSession = await axios.request({
       url: 'http://localhost:3333/authentication/access-session/google/provider'
     })
-    console.log(accessSession)
   }, [])
 
   const handleInputs = useMemo(() =>

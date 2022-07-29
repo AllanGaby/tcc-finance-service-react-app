@@ -11,9 +11,7 @@ export class RemoteCreateAccessSessionUseCase implements CreateAccessSessionUseC
   ) { }
 
   async createAccessSession (params: CreateAccessSessionDTO): Promise<AccessSessionModel> {
-    console.log(params)
     const token = this.encryptMessage.encrypt(JSON.stringify(params))
-    console.log(token)
     const response = await this.httpClient.request<AccessSessionModel>({
       method: HttpMethod.post,
       url: this.endPoint,
@@ -21,7 +19,6 @@ export class RemoteCreateAccessSessionUseCase implements CreateAccessSessionUseC
         token
       }
     })
-    console.log(response.statusCode)
     switch (response.statusCode) {
       case HttpStatusCode.created:
         return response.body
